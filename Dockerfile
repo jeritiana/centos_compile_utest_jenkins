@@ -7,7 +7,7 @@ ENV JENKINS_PUBLIC_KEY="define" \
 RUN yum install -y openssh-server
 RUN useradd -ms /bin/bash jenkins
 # Set password for the jenkins user (you may want to alter this).
-RUN echo "jenkins:jenkins" | chpasswd
+RUN echo -e "jenkins:jenkins\nroot:gc" | chpasswd
 
 # Standard SSH port
 EXPOSE 22
