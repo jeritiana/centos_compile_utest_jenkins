@@ -22,6 +22,7 @@ mkdir -p ~/.ssh
 echo $JENKINS_PUBLIC_KEY | sed 's/\\\\n/\n/g' > ~/.ssh/authorized_keys
 echo $GITLAB_SSH_PRIVATE_KEY | sed 's/\\\\n/\n/g' > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+$SSHKEYGEN -yf ~/.ssh/id_rsa -q -P "" > ~/.ssh/id_rsa.pub || true
 
 echo -e "Host u-test-factory.org\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
 echo -e "Host gitlab.u-test-factory.org\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
